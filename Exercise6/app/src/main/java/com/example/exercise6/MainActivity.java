@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Exercise 6 - Simple Calculator");
+        //Register ID for each variable
         addBtn = findViewById(R.id.addBtn);
         minusBtn = findViewById(R.id.minusBtn);
         multiBtn = findViewById(R.id.multiBtn);
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num2 = findViewById(R.id.num2);
         textView = findViewById(R.id.result);
 
-        addBtn.setOnClickListener(this);minusBtn.setOnClickListener(this);multiBtn.setOnClickListener(this);divBtn.setOnClickListener(this);
+        addBtn.setOnClickListener(this); minusBtn.setOnClickListener(this); multiBtn.setOnClickListener(this); divBtn.setOnClickListener(this);
     }
 
     public int getNum(EditText editText)
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         n1 = getNum(num1);
         n2 = getNum(num2);
         int id = view.getId();
+
+
         if (id == R.id.addBtn) {
             textView.setText(n1 + " + " + n2 + " = " + (n1 + n2));
         } else if (id == R.id.minusBtn) {
