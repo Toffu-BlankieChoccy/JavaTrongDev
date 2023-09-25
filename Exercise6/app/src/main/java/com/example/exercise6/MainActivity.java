@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         n2 = getNum(num2);
         int id = view.getId();
 
-
         if (id == R.id.addBtn) {
             textView.setText(n1 + " + " + n2 + " = " + (n1 + n2));
         } else if (id == R.id.minusBtn) {
