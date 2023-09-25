@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public int getNum(EditText editText)
     {
-        if(editText.getText().toString().equals("")) {
-            Toast.makeText(this, "Number(s) is required to be filled", Toast.LENGTH_SHORT).show();
-            return 0;
-        }
+//        if(editText.getText().toString().equals("")) {
+//            Toast.makeText(this, "Number(s) are required to be filled", Toast.LENGTH_SHORT).show();
+//            return 0;
+//        }
         return Integer.parseInt(editText.getText().toString());
     }
 
@@ -48,21 +48,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         n1 = getNum(num1);
         n2 = getNum(num2);
-        int id = view.getId();
-
-        if (id == R.id.addBtn) {
-            textView.setText(n1 + " + " + n2 + " = " + (n1 + n2));
-        } else if (id == R.id.minusBtn) {
-            textView.setText(n1 + " - " + n2 + " = " + (n1 - n2));
-        } else if (id == R.id.multiBtn) {
-            textView.setText(n1 + " x " + n2 + " = " + (n1 * n2));
-        } else if (id == R.id.divBtn) {
-            if (n2 == 0){
-                Toast.makeText(this, "Cannot devide by 0", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            textView.setText(n1 + " / " + n2 + " = " + (n1 / n2));
+        if(num1.getText().toString().equals("") || num2.getText().toString().equals("")) {
+            Toast.makeText(this, "Number(s) are required to be filled", Toast.LENGTH_SHORT).show();
+            return;
         }
+        else {
+            int id = view.getId();
 
+            if (id == R.id.addBtn) {
+                textView.setText(n1 + " + " + n2 + " = " + (n1 + n2));
+            } else if (id == R.id.minusBtn) {
+                textView.setText(n1 + " - " + n2 + " = " + (n1 - n2));
+            } else if (id == R.id.multiBtn) {
+                textView.setText(n1 + " x " + n2 + " = " + (n1 * n2));
+            } else if (id == R.id.divBtn) {
+                if (n2 == 0) {
+                    Toast.makeText(this, "Cannot devide by 0", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                textView.setText(n1 + " / " + n2 + " = " + (n1 / n2));
+            }
+        }
     }
 }
