@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setText(n1 + " x " + n2 + " = " + (n1 * n2));
             } else if (id == R.id.divBtn) {
                 if (n2 == 0) {
-                    Toast.makeText(this, "Cannot devide by 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Cannot divide by 0", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 textView.setText(n1 + " / " + n2 + " = " + (n1 / n2));
