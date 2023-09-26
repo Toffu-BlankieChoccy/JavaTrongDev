@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button addBtn, minusBtn, multiBtn, divBtn;
     EditText num1, num2;
     TextView textView;
-    int n1, n2;
+    float n1, n2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +35,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addBtn.setOnClickListener(this); minusBtn.setOnClickListener(this); multiBtn.setOnClickListener(this); divBtn.setOnClickListener(this);
     }
 
-    public int getNum(EditText editText)
+    public float getNum(EditText editText)
     {
-//        if(editText.getText().toString().equals("")) {
-//            Toast.makeText(this, "Number(s) are required to be filled", Toast.LENGTH_SHORT).show();
-//            return 0;
-//        }
-        return Integer.parseInt(editText.getText().toString());
+        String input = editText.getText().toString().trim(); // Get the input as a string and remove leading/trailing spaces
+        if (input.isEmpty()) {
+            Toast.makeText(this, "Number(s) are required to be filled", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+        return Float.parseFloat(input);
     }
 
     @Override
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         n2 = getNum(num2);
         if(num1.getText().toString().equals("") || num2.getText().toString().equals("")) {
             Toast.makeText(this, "Number(s) are required to be filled", Toast.LENGTH_SHORT).show();
+            textView.setText("");
             return;
         }
         else {
