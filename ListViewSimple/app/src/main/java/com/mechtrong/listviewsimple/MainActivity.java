@@ -36,11 +36,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String mucChon = lstNNLT.get(i).toString();
+                String chuoiThongBao = "Select one" + mucChon;
+                Toast.makeText(MainActivity.this, chuoiThongBao, Toast.LENGTH_SHORT ).show();
             }
         });
-
-        String chuoiThongBao = "Select one" + mucChon;
-        Toast.makeText(MainActivity, this, sh)
     }
         public void getWidget() {
             auLV = findViewById(R.id.lv);
