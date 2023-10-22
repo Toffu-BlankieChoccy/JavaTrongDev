@@ -30,6 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         }
-        else Toast.makeText(this, "Username or Password is incorrect", Toast.LENGTH_LONG).show();
+        else Toast.makeText(this, "Username or Password is incorrect!", Toast.LENGTH_LONG).show();
     }
 }
