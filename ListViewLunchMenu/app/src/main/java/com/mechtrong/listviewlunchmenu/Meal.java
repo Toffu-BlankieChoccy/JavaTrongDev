@@ -45,5 +45,4 @@ public class Meal {
         this.imgFood = imgFood;
     }
 
-
 }

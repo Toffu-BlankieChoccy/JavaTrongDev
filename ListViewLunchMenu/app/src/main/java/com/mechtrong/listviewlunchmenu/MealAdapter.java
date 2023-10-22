@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MealAdapter extends BaseAdapter {
-    private ArrayList<Meal> lstMeal = new ArrayList<>();
+    private ArrayList<Meal> lstMeal;
     private LayoutInflater layoutInflater;
     private Context context;
 
