@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Setup an in-app title
         getSupportActionBar().setTitle("Exercise 6 - Simple Calculator");
         //Register ID for each variable
         addBtn = findViewById(R.id.addBtn);
