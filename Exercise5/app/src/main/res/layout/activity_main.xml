@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your height in cm"/>
+            android:text="Your height in centimeter"/>
         <EditText
             android:id="@+id/height"
             android:layout_width="320dp"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your weight in kg"/>
+            android:text="Your weight in kilogram"/>
         <EditText
             android:id="@+id/weight"
             android:layout_width="match_parent"
