@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void XuLyNhanOK(View v){
-        String chuoiThongBao = "U just pressed a button";
+        String chuoiThongBao = "You just pressed a button";
         Toast.makeText(this, chuoiThongBao, Toast.LENGTH_SHORT).show();
     }
 }
