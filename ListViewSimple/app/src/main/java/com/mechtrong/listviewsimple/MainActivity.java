@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getWidget();
-        lstNNLT.add("C");
+        lstNNLT.add("C++");
         lstNNLT.add("Java");
         lstNNLT.add("Ruby");
         lstNNLT.add("Python");
