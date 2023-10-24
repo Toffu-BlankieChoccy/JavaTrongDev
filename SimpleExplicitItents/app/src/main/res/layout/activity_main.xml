@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="This is the main screen"
-        android:textSize="34dp"/>
+        android:textSize="35dp"/>
 
     <Button
         android:id="@+id/btnIntents"
