@@ -12,5 +12,12 @@
         android:layout_height="wrap_content"
         android:text="GO TO BMI CALCULATOR"
         android:layout_gravity="center"
-        android:onClick="chuyenManHinh"/>
+        android:onClick="chuyenManHinh_BMI"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GO TO LUNCH MENU"
+        android:layout_gravity="center"
+        android:onClick="chuyenManHinh_Lunch"/>
 </LinearLayout>

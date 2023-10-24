@@ -14,8 +14,12 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
     }
 
-    public void chuyenManHinh(View view){
-        Intent iBMIScreen = new Intent(this, MainActivity.class);
+    public void chuyenManHinh_BMI(View view){
+        Intent iBMIScreen = new Intent(this, MainActivity_BMI.class);
         startActivity(iBMIScreen);
+    }
+    public void chuyenManHinh_Lunch(View view){
+        Intent iLunchScreen = new Intent(this, MainActivity_Lunch.class);
+        startActivity(iLunchScreen);
     }
 }

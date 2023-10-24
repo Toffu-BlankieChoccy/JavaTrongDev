@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity_BMI extends AppCompatActivity implements View.OnClickListener {
     TextView result;
     EditText height, weight;
     Button btn;

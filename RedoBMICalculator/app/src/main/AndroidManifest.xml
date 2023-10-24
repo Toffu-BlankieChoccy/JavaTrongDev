@@ -13,7 +13,10 @@
         android:theme="@style/Theme.RedoBMICalculator"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity_Lunch"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity_BMI"
             android:exported="false" />
         <activity
             android:name=".MainScreen"
