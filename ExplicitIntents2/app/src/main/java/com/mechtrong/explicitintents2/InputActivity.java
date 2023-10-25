@@ -18,6 +18,7 @@ public class InputActivity extends AppCompatActivity {
     {
         EditText edtHT = (EditText)findViewById(R.id.edtName);
         EditText edtNam = (EditText)findViewById(R.id.edtYear);
+
         String hoTen = edtHT.getText().toString();
         int namSinh = Integer.parseInt(edtNam.getText().toString());
 
