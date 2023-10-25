@@ -51,7 +51,7 @@ public class MainActivity_BMI extends AppCompatActivity implements View.OnClickL
                 float bmi = calculateBMI(h, w);
                 if (bmi < 20)
                 {
-                    String state = String.format("YOUR RESULT \n%.1f\nUNDERWEIGHT",bmi);
+                    String state = String.format("YOUR  RESULT \n%.1f\nUNDERWEIGHT",bmi);
                     result.setText(state);
                 } else if(bmi<=25){
                     String state = String.format("YOUR RESULT \n%.1f\nNORMAL",bmi);
