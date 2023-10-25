@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
     public void manHinhInput(View v)
     {
         Intent iSubScreen= new Intent(this, InputActivity.class);
-        startActivityForResult(iSubScreen,8000);
+        startActivityForResult(iSubScreen,1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode==8000)
+        if(requestCode==1)
             if(resultCode==RESULT_OK)
             {
                 String nameNhanDuoc = data.getStringExtra("HT");
