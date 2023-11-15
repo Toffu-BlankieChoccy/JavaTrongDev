@@ -19,17 +19,17 @@ public class CountryRVAdapter extends RecyclerView.Adapter {
         this.lstDataSource = lstDataSource;
     }
 
-    public final class CountryItemViewHoder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public final class CountryItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView flagView;
         TextView countryNameView;
         TextView populationView;
         public int position;
-        public CountryItemViewHoder(@NonNull View itemView) {
+        public CountryItemViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            flagView =(ImageView)   itemView.findViewById(R.id.imageViewFlag);
-            countryNameView =(TextView)  itemView.findViewById(R.id.textViewCountryName);
-            populationView = (TextView) itemView.findViewById(R.id.textViewPopulation);
+            flagView = (ImageView)itemView.findViewById(R.id.imageViewFlag);
+            countryNameView =(TextView)itemView.findViewById(R.id.textViewCountryName);
+            populationView = (TextView)itemView.findViewById(R.id.textViewPopulation);
         }
 
         @Override
@@ -43,20 +43,20 @@ public class CountryRVAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.country_item_layout, parent, false);
-        CountryItemViewHoder vh = new CountryItemViewHoder(v);
+        CountryItemViewHolder vh = new CountryItemViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        CountryItemViewHoder viewHolder = (CountryItemViewHoder) holder;
+        CountryItemViewHolder viewHolder = (CountryItemViewHolder) holder;
         viewHolder.position = position;
 
         Country country = lstDataSource.get(position);
 
-        ((CountryItemViewHoder) holder).countryNameView.setText(country.getCountryName());
-        ((CountryItemViewHoder) holder).flagView.setImageResource( getMipmapResId(holder.itemView, country.getCountryFlag()));
-        ((CountryItemViewHoder) holder).populationView.setText(String.valueOf(country.getPopulation()) );
+        ((CountryItemViewHolder) holder).countryNameView.setText(country.getCountryName());
+        ((CountryItemViewHolder) holder).flagView.setImageResource( getMipmapResId(holder.itemView, country.getCountryFlag()));
+        ((CountryItemViewHolder) holder).populationView.setText(String.valueOf(country.getPopulation()) );
 
     }
 
