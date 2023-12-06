@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "506948895529",
+    "project_id": "online-chatting-applicat-d4a38",
+    "storage_bucket": "online-chatting-applicat-d4a38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506948895529:android:a6c5e2781c1021516c2d38",
+        "android_client_info": {
+          "package_name": "com.mechtrong.apponlinechattingproject_63135901"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFVOMsAOepa-vit5zAMZK5Y3MvByq97Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
