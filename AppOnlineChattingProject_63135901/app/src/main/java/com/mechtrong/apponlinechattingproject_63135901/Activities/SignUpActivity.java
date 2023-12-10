@@ -59,6 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void signUp(){
         loading(true);
+        //entry point for accessing Cloud Firestore.
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         HashMap<String, Object> user = new HashMap<>();
         user.put(Constants.KEY_NAME,binding.inputName.getText().toString());
@@ -124,13 +125,13 @@ public class SignUpActivity extends AppCompatActivity {
             showToast("Hãy nhập tên");
             return false;
         }else if(binding.inputEmail.getText().toString().trim().isEmpty()) {
-            showToast("Hãy email");
+            showToast("Hãy nhập email");
             return false;
         }else if(!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches()) {
             showToast("Hãy nhập đúng email");
             return false;
         }else if(binding.inputPassword.getText().toString().trim().isEmpty()) {
-            showToast("Hãy nhập khẩu ");
+            showToast("Hãy nhập mật khẩu ");
             return false;
         }else if(binding.inputConfirmPassword.getText().toString().trim().isEmpty()) {
             showToast("Hãy lại mật khẩu");
@@ -141,6 +142,8 @@ public class SignUpActivity extends AppCompatActivity {
         }else return true;
     }
 
+
+    //Loading animation
     private void loading(Boolean isLoading){
         if(isLoading)
         {
