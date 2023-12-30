@@ -90,21 +90,28 @@ public class ChatActivity extends AppCompatActivity {
             for (DocumentChange documentChange: value.getDocumentChanges()){
                 if(documentChange.getType() == DocumentChange.Type.ADDED){
                     ChatMessage chatMessage = new ChatMessage();
+                    // Populating the ChatMessage object with data from the Firestore document
                     chatMessage.senderId = documentChange.getDocument().getString(Constants.KEY_SENDER_ID);
                     chatMessage.receiverId = documentChange.getDocument().getString(Constants.KEY_RECEIVER_ID);
                     chatMessage.message = documentChange.getDocument().getString(Constants.KEY_MESSAGE);
                     chatMessage.dateTime = getReadableDateTime(documentChange.getDocument().getDate(Constants.KEY_TIMESTAMP));
                     chatMessage.dateObject = documentChange.getDocument().getDate(Constants.KEY_TIMESTAMP);
+                    // Adding the ChatMessage to the local list
                     chatMessages.add(chatMessage);
                 }
             }
+            //Sorting Messages by Timestamp:
             Collections.sort(chatMessages, (obj1, obj2) -> obj1.dateObject.compareTo(obj2.dateObject));
             if(count == 0){
+                // If there were no messages before, notify the entire dataset change
                 chatAdapter.notifyDataSetChanged();
             }else{
+                // If there were existing messages, notify only the range of inserted messages
                 chatAdapter.notifyItemRangeInserted(chatMessages.size(), chatMessages.size());
+                // Scrolls the RecyclerView to the last message
                 binding.chatRecyclerView.smoothScrollToPosition(chatMessages.size() - 1);
             }
+            //Updating UI Visibility and Progress Bar
             binding.chatRecyclerView.setVisibility(View.VISIBLE);
         }
         binding.progressBar.setVisibility(View.GONE);
