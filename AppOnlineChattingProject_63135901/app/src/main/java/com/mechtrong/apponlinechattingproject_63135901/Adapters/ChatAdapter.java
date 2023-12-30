@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mechtrong.apponlinechattingproject_63135901.Listeners.ChatMessage;
+import com.mechtrong.apponlinechattingproject_63135901.Models.ChatMessage;
 import com.mechtrong.apponlinechattingproject_63135901.databinding.ItemContainerReceivedMessageBinding;
 import com.mechtrong.apponlinechattingproject_63135901.databinding.ItemContainerSentMessageBinding;
 
