@@ -9,16 +9,20 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mechtrong.apponlinechattingproject_63135901.Listeners.ConversationListener;
 import com.mechtrong.apponlinechattingproject_63135901.Models.ChatMessage;
+import com.mechtrong.apponlinechattingproject_63135901.Models.User;
 import com.mechtrong.apponlinechattingproject_63135901.databinding.ItemContainerRecentConversationBinding;
 
 import java.util.List;
 
 public class RecentConversationAdapter extends RecyclerView.Adapter<RecentConversationAdapter.ConversationViewHolder>{
     private final List<ChatMessage> chatMessages;
+    private final ConversationListener conversationListener;
 
-    public RecentConversationAdapter(List<ChatMessage> chatMessages) {
+    public RecentConversationAdapter(List<ChatMessage> chatMessages,ConversationListener conversationListener) {
         this.chatMessages = chatMessages;
+        this.conversationListener = conversationListener;
     }
 
     @NonNull
@@ -55,6 +59,12 @@ public class RecentConversationAdapter extends RecyclerView.Adapter<RecentConver
             binding.imageProfile.setImageBitmap(getConversationImage(chatMessage.conversationImage));
             binding.textName.setText(chatMessage.conversationName);
             binding.textRecentMessage.setText(chatMessage.message);
+            binding.getRoot().setOnClickListener(v -> {
+                User user = new User();
+                user.id = chatMessage.conversationId;
+                user.name = chatMessage.conversationName;
+                conversationListener.onConversationCliked(user);
+            });
         }
     }
     private Bitmap getConversationImage(String encodedImage){
