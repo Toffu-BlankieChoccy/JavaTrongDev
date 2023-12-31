@@ -1,8 +1,5 @@
 package com.mechtrong.apponlinechattingproject_63135901.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +9,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.mechtrong.apponlinechattingproject_63135901.Adapters.UserAdapter;
 import com.mechtrong.apponlinechattingproject_63135901.Listeners.UserListener;
 import com.mechtrong.apponlinechattingproject_63135901.Models.User;
-import com.mechtrong.apponlinechattingproject_63135901.R;
 import com.mechtrong.apponlinechattingproject_63135901.Utilities.Constants;
 import com.mechtrong.apponlinechattingproject_63135901.Utilities.PrefrencesManager;
 import com.mechtrong.apponlinechattingproject_63135901.databinding.ActivityUsersBinding;
@@ -20,7 +16,7 @@ import com.mechtrong.apponlinechattingproject_63135901.databinding.ActivityUsers
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity implements UserListener {
+public class UsersActivity extends BaseActivity implements UserListener {
 
     private ActivityUsersBinding binding;
     private PrefrencesManager prefrencesManager;
