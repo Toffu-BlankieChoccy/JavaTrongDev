@@ -78,16 +78,20 @@ public class ChatActivity extends BaseActivity {
     }
 
     private void sendMessge(){
+        // Tạo một HashMap để lưu thông tin của tin nhắn
         HashMap<String, Object> message = new HashMap<>();
         message.put(Constants.KEY_SENDER_ID, prefrencesManager.getString(Constants.KEY_USER_ID));
         message.put(Constants.KEY_RECEIVER_ID, receiverUser.id);
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
+
+        // Thêm tin nhắn vào collection "chat" trong Firestore
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
-        if(conversationId != null)
-        {
+
+        if(conversationId != null) // Kiểm tra nếu đã có conversationId thì cập nhật tin nhắn cuối cùng
             updateConversation(binding.inputMessage.getText().toString());
-        }else {
+        else // Nếu chưa có conversationId, tạo mới conversation và thêm thông tin vào
+        {
             HashMap<String, Object> conversation = new HashMap<>();
             conversation.put(Constants.KEY_SENDER_ID,prefrencesManager.getString(Constants.KEY_USER_ID));
             conversation.put(Constants.KEY_SENDER_NAME,prefrencesManager.getString(Constants.KEY_NAME));
@@ -99,8 +103,11 @@ public class ChatActivity extends BaseActivity {
             conversation.put(Constants.KEY_TIMESTAMP, new Date());
             addConversation(conversation);
         }
+
+        // Kiểm tra nếu người nhận không online, gửi notification
         if (!isReceiverAvailable){
             try {
+                // Tạo JSON object để gửi thông báo
                 JSONArray tokens = new JSONArray();
                 tokens.put(receiverUser.token);
 
@@ -114,6 +121,7 @@ public class ChatActivity extends BaseActivity {
                 body.put(Constants.REMOTE_MSG_DATA, data);
                 body.put(Constants.REMOTE_MSG_REGISTRATION_IDS, tokens);
 
+                // Gửi notification thông qua Retrofit
                 sendNotification(body.toString());
 
             }catch (Exception e)
@@ -197,6 +205,7 @@ public class ChatActivity extends BaseActivity {
                 .whereEqualTo(Constants.KEY_SENDER_ID,prefrencesManager.getString(Constants.KEY_USER_ID))
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, receiverUser.id)
                 .addSnapshotListener(eventListener);
+
         database.collection(Constants.KEY_COLLECTION_CHAT)
                 .whereEqualTo(Constants.KEY_SENDER_ID, receiverUser.id)
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, prefrencesManager.getString(Constants.KEY_USER_ID))
@@ -204,10 +213,7 @@ public class ChatActivity extends BaseActivity {
     }
 
     private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
-        if(error != null)
-        {
-            return;
-        }
+        if(error != null) return;
         if(value != null){
             int count = chatMessages.size();
             for (DocumentChange documentChange: value.getDocumentChanges()){
@@ -225,10 +231,10 @@ public class ChatActivity extends BaseActivity {
             }
             //Sorting Messages by Timestamp:
             Collections.sort(chatMessages, (obj1, obj2) -> obj1.dateObject.compareTo(obj2.dateObject));
-            if(count == 0){
-                // If there were no messages before, notify the entire dataset change
-                chatAdapter.notifyDataSetChanged();
-            }else{
+
+            // If there were no messages before, notify the entire dataset change
+            if(count == 0) chatAdapter.notifyDataSetChanged();
+            else{
                 // If there were existing messages, notify only the range of inserted messages
                 chatAdapter.notifyItemRangeInserted(chatMessages.size(), chatMessages.size());
                 // Scrolls the RecyclerView to the last message
@@ -238,19 +244,14 @@ public class ChatActivity extends BaseActivity {
             binding.chatRecyclerView.setVisibility(View.VISIBLE);
         }
         binding.progressBar.setVisibility(View.GONE);
-        if(conversationId == null){
-            checkForConversation();
-        }
+        if(conversationId == null) checkForConversation();
     };
 
     private Bitmap getBitmapFromEncodedString(String encodedImage){
         if(encodedImage != null){
             byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
             return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        }else {
-            return null;
-        }
-
+        }else return null;
     }
 
     private void loadReceiverDetails(){
@@ -259,7 +260,6 @@ public class ChatActivity extends BaseActivity {
     }
 
     private void setListeners(){
-
         binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessge());
     }

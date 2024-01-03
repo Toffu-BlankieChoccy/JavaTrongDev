@@ -58,12 +58,8 @@ public class UsersActivity extends BaseActivity implements UserListener {
                             binding.userRecyclerView.setAdapter(userAdapter);
                             binding.userRecyclerView.setVisibility(View.VISIBLE);
 
-                        }else{
-                            showErrorMassage();
-                        }
-                    }else {
-                        showErrorMassage();
-                    }
+                        }else showErrorMassage();
+                    }else showErrorMassage();
                 });
     }
 

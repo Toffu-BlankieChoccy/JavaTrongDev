@@ -73,6 +73,7 @@ public class SignInActivity extends AppCompatActivity {
                     }else{
                         loading(false);
                         showToast("Đăng nhập thất bại");
+                        binding.buttonSignIn.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -101,10 +102,5 @@ public class SignInActivity extends AppCompatActivity {
             showToast("Hãy nhập mật khẩu");
             return false;
         }else return true;
-
-
-
-
-
     }
 }

@@ -81,9 +81,6 @@ public class SignUpActivity extends AppCompatActivity {
                     loading(false);
                     showToast(exception.getMessage());
                 });
-
-
-
     }
 
     private String encodeImage(Bitmap bitmap){
@@ -116,6 +113,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
     );
 
+
+    //Check user's data validation
     private Boolean isValid()
     {
         if(encodeImage == null){
